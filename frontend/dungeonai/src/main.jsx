@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import Root from "./routes/root";
 import Games from "./routes/games";
+import Game from "./routes/game";
 import Character from "./routes/character";
 
 const router = createBrowserRouter([
@@ -16,9 +17,13 @@ const router = createBrowserRouter([
     element: <Games />,
   },
   {
+    path: "/games/:gameId",
+    element: <Game />,
+  },
+  {
     path: "/character",
     element: <Character />,
-  }
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

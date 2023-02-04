@@ -22,6 +22,26 @@
   border-radius: 8px;
 }
 
+/* Health Progress Bar with Red Background */
+.progress {
+  background-color: maroon;
+  border-radius: 8px;
+  height: 20px;
+  width: 100%;
+}
+
+.eventbox {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: white;
+  border-radius: 8px;
+}
+
+.eventwrapper {
+  display: grid;
+  background-color: bg-slate-400;
+}
+
 /* A card container for an individual game. The card should extend to the edge of the page, have rounded edges and have a white background */
 /*  */
 .gamebox {
@@ -47,4 +67,29 @@
   display: grid;
   background-color: white;
   border-radius: 8px;
+}
+
+.players {
+  background-color: white;
+  border-radius: 8px;
+}
+
+/* Centers all child within grid */
+.playerwrapper {
+  display: grid;
+  place-items: center;
+}
+
+/* Class for animation to rotate an image 360 degrees when the class is applied to an element */
+.roll {
+  animation: roll 1s linear infinite;
+}
+
+@keyframes roll {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
