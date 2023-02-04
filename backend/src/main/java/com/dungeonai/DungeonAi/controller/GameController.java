@@ -28,7 +28,7 @@ public class GameController {
         try {
             characterService.createCharacter();
         } catch (IOException e) {
-            System.out.println("shit don\'t work");
+            System.out.println("no go");
         }
         return ResponseEntity.ok(savedGame);
     }
