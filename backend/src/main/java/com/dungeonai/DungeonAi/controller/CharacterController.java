@@ -105,6 +105,16 @@ public class CharacterController {
         return ResponseEntity.ok(savedCharacter);
     }
 
+    @PutMapping("/{character_id}/image")
+    public ResponseEntity<Character> updateImage(@PathVariable("character_id") int characterId, @RequestBody Character character) {
+        Optional<Character> optionalCharacter = characterRepository.findById(characterId);
+        if (optionalCharacter.isEmpty()) {
+            return ResponseEntity.unprocessableEntity().build();
+        }
+        optionalCharacter.get().setImage(character.getImage());
+        Character savedCharacter = characterRepository.save(optionalCharacter.get());
+        return ResponseEntity.ok(savedCharacter);
+    }
     @PutMapping("/{character_id}")
     public ResponseEntity<Character> update(@PathVariable("character_id") int characterId, @RequestBody Character character) {
         Optional<Character> optionalCharacter = characterRepository.findById(characterId);
