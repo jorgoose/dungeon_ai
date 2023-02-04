@@ -1,5 +1,6 @@
 package com.dungeonai.DungeonAi.controller;
 
+import com.dungeonai.DungeonAi.entity.Character;
 import com.dungeonai.DungeonAi.entity.Game;
 import com.dungeonai.DungeonAi.repository.GameRepository;
 import com.dungeonai.DungeonAi.service.CharacterService;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/games")
@@ -31,5 +33,12 @@ public class GameController {
         ArrayList<Game> allGames = new ArrayList<>();
         gameRepository.findAll().forEach(allGames::add);
         return ResponseEntity.ok(allGames);
+    }
+
+    @GetMapping("/{game_id}/characters")
+    public ResponseEntity<Set<Character>> getAllCharacters(@PathVariable("game_id") int gameId) {
+
+        Game game = gameRepository.findById(gameId).get();
+        return ResponseEntity.ok(game.getCharacters());
     }
 }
