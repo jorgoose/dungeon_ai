@@ -1,9 +1,6 @@
 package com.dungeonai.DungeonAi.entity;
 
-import com.dungeonai.DungeonAi.controller.GameController;
 import jakarta.persistence.*;
-
-import java.util.Date;
 
 
 @Entity
