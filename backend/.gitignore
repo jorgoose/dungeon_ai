@@ -33,3 +33,5 @@ build/
 .vscode/
 
 ../.idea/
+
+src/main/resources/env.properties
