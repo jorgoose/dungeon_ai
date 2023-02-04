@@ -1,32 +1,22 @@
 package com.dungeonai.DungeonAi.service;
 
+import com.dungeonai.DungeonAi.entity.ProfileImage;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.URL;
 
 @Service
 public class CharacterService {
 
-    public void createCharacter() throws IOException {
-        String imageUrl = "https://picsum.photos/200/300";
-        String destinationFile = "backend/src/images/image.jpg";
-
-        URL url = new URL(imageUrl);
-        InputStream is = url.openStream();
-        OutputStream os = new FileOutputStream(destinationFile);
-
-
-        byte[] b = new byte[2048];
-        int length;
-
-        while ((length = is.read(b)) != -1) {
-            os.write(b, 0, length);
-        }
-        is.close();
-        os.close();
+    public String createCharacter() throws IOException {
+//        RestTemplate restTemplate = new RestTemplate();
+//
+//        ResponseEntity<ProfileImage> response = restTemplate.getForEntity("INSERT BACKEND LINK", ProfileImage.class);
+//
+//        ProfileImage image = response.getBody();
+//        return image.getImages()[0];
+        return "";
     }
 }

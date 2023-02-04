@@ -31,12 +31,6 @@ public class Character {
     @Column(name = "max_health")
     private int maxHealth;
 
-    @Column(name = "background")
-    private String background;
-
-    @Column(name = "skill_points")
-    private int skillPoints;
-
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "game_id")
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
@@ -44,6 +38,15 @@ public class Character {
 
     @ManyToMany(cascade = CascadeType.ALL)
     private Set<Skill> skills = new HashSet<>();
+
+    public Character(String name, String appearance) {
+        this.name = name;
+        this.appearance = appearance;
+    }
+
+    public Character() {
+
+    }
 
     public int getId() {
         return id;
@@ -93,23 +96,6 @@ public class Character {
 
     public void setMaxHealth(int maxHealth) {
         this.maxHealth = maxHealth;
-    }
-
-    public String getBackground() {
-        return background;
-    }
-
-    public void setBackground(String background) {
-        this.background = background;
-    }
-
-    @JsonProperty("skill_points")
-    public int getSkillPoints() {
-        return skillPoints;
-    }
-
-    public void setSkillPoints(int skillPoints) {
-        this.skillPoints = skillPoints;
     }
 
     public Game getGame() {
