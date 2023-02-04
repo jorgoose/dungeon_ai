@@ -25,6 +25,10 @@ public class Game {
             mappedBy = "game")
     private Set<Character> characters = new HashSet<>();
 
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "game")
+    private Set<Event> events = new HashSet<>();
+
     public int getId() {
         return id;
     }
@@ -56,4 +60,13 @@ public class Game {
     public void setCharacters(Set<Character> characters) {
         this.characters = characters;
     }
+
+    public Set<Event> getEvents() {
+        return events;
+    }
+
+    public void setEvents(Set<Event> events) {
+        this.events = events;
+    }
+
 }
