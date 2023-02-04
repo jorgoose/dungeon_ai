@@ -14,7 +14,7 @@ The project is split into three main directories:
 2. /backend - Directory for the SpringBoot backend
 3. /diffusion - Directory for the FastAPI StableDiffusion Application
 
-To run the frontend application locally with Vite / npm:\ 1. "npm i" 2.\ "npm run dev"\
+To run the frontend application locally with Vite / npm:<br /> 1. "npm i" 2. "npm run dev"<br />
 
 To run the FastAPI StableDiffusion Model locally with an Nvidia GPU (CUDA):
 "diffuzers api"
