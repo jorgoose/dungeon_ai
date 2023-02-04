@@ -1,12 +1,11 @@
 package com.dungeonai.DungeonAi.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
-import java.util.Date;
-
 
 @Entity
-@Table(name = "games")
-public class Game {
+@Table(name = "skills")
+public class Skill {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,8 +15,8 @@ public class Game {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "date_created")
-    private Date dateCreated;
+    @Column(name = "level")
+    private int level;
 
     public int getId() {
         return id;
@@ -35,11 +34,12 @@ public class Game {
         this.name = name;
     }
 
-    public Date getDateCreated() {
-        return dateCreated;
+    @JsonProperty("level")
+    public int getLevel() {
+        return level;
     }
 
-    public void setDateCreated(Date dateCreated) {
-        this.dateCreated = dateCreated;
+    public void setLevel(int level) {
+        this.level = level;
     }
 }
