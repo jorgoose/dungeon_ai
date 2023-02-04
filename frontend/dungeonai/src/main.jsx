@@ -6,6 +6,7 @@ import Root from "./routes/root";
 import Games from "./routes/games";
 import Game from "./routes/game";
 import Character from "./routes/character";
+import CharacterCreate from "./routes/characterCreate";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
   {
     path: "/character",
     element: <Character />,
+  },
+  {
+    path: "/characterCreate",
+    element: <CharacterCreate />,
   },
 ]);
 
