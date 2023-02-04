@@ -42,7 +42,7 @@ public class Character {
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Game game;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL)
     private Set<Skill> skills = new HashSet<>();
 
     public int getId() {
