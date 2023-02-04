@@ -11,11 +11,12 @@ import java.io.IOException;
 public class CharacterService {
 
     public String createCharacter() throws IOException {
-        RestTemplate restTemplate = new RestTemplate();
-
-        ResponseEntity<ProfileImage> response = restTemplate.getForEntity("INSERT BACKEND LINK", ProfileImage.class);
-
-        ProfileImage image = response.getBody();
-        return image.getImages()[0];
+//        RestTemplate restTemplate = new RestTemplate();
+//
+//        ResponseEntity<ProfileImage> response = restTemplate.getForEntity("INSERT BACKEND LINK", ProfileImage.class);
+//
+//        ProfileImage image = response.getBody();
+//        return image.getImages()[0];
+        return "";
     }
 }
