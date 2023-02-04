@@ -33,3 +33,6 @@ build/
 .vscode/
 
 ../.idea/
+
+### environment properties for MySQL ###
+src/main/resources/env.properties
