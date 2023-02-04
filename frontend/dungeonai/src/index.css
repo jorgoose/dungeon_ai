@@ -1,0 +1,95 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@500&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.logotext {
+  font-family: "Manrope", sans-serif;
+}
+
+.buttonCharacterScreen {
+  background-color: gray;
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+/* Health Progress Bar with Red Background */
+.progress {
+  background-color: maroon;
+  border-radius: 8px;
+  height: 20px;
+  width: 100%;
+}
+
+.eventbox {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: white;
+  border-radius: 8px;
+}
+
+.eventwrapper {
+  display: grid;
+  background-color: bg-slate-400;
+}
+
+/* A card container for an individual game. The card should extend to the edge of the page, have rounded edges and have a white background */
+/*  */
+.gamebox {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: white;
+  border-radius: 8px;
+}
+
+.gamewrapper {
+  display: grid;
+  background-color: bg-slate-400;
+}
+
+/* Input box for creating a new game. Background color should be bg-slate-400 */
+.gameinput {
+  background-color: rgb(226 232 240);
+  border-radius: 5px;
+  width: 50%;
+}
+
+.gameadd {
+  display: grid;
+  background-color: white;
+  border-radius: 8px;
+}
+
+.players {
+  background-color: white;
+  border-radius: 8px;
+}
+
+/* Centers all child within grid */
+.playerwrapper {
+  display: grid;
+  place-items: center;
+}
+
+/* Class for animation to rotate an image 360 degrees when the class is applied to an element */
+.roll {
+  animation: roll 1s linear infinite;
+}
+
+@keyframes roll {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
