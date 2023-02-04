@@ -18,6 +18,9 @@ public class Skill {
     @Column(name = "level")
     private int level;
 
+    @Column(name= "is_default")
+    private boolean isDefault;
+
     public int getId() {
         return id;
     }
@@ -41,5 +44,14 @@ public class Skill {
 
     public void setLevel(int level) {
         this.level = level;
+    }
+
+    @JsonProperty("isDefault")
+    public boolean isDefault() {
+        return isDefault;
+    }
+
+    public void setDefault(boolean aDefault) {
+        isDefault = aDefault;
     }
 }

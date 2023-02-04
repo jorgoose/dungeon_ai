@@ -3,6 +3,9 @@ package com.dungeonai.DungeonAi.entity;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
+import java.util.HashSet;
+import java.util.Set;
+
 
 @Entity
 @Table(name = "\"characters\"")
@@ -33,6 +36,14 @@ public class Character {
 
     @Column(name = "skill_points")
     private int skillPoints;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "game_id")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private Game game;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    private Set<Skill> skills = new HashSet<>();
 
     public int getId() {
         return id;
@@ -99,5 +110,25 @@ public class Character {
 
     public void setSkillPoints(int skillPoints) {
         this.skillPoints = skillPoints;
+    }
+
+    public Game getGame() {
+        return game;
+    }
+
+    public void setGame(Game game) {
+        this.game = game;
+    }
+
+    public Set<Skill> getSkills() {
+        return skills;
+    }
+
+    public void addSkill(Skill skill) {
+        skills.add(skill);
+    }
+
+    public void setSkills(Set<Skill> skills) {
+        this.skills = skills;
     }
 }

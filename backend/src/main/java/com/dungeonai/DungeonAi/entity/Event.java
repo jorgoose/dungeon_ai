@@ -1,5 +1,6 @@
 package com.dungeonai.DungeonAi.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
 @Entity
@@ -13,6 +14,11 @@ public class Event {
 
     @Column(name = "description")
     private String description;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "game_id")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private Game game;
 
     public int getId() {
         return id;
@@ -29,4 +35,13 @@ public class Event {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public Game getGame() {
+        return game;
+    }
+
+    public void setGame(Game game) {
+        this.game = game;
+    }
+
 }

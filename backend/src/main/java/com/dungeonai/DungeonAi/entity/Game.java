@@ -2,6 +2,8 @@ package com.dungeonai.DungeonAi.entity;
 
 import jakarta.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Entity
@@ -18,6 +20,14 @@ public class Game {
 
     @Column(name = "date_created")
     private Date dateCreated;
+
+    @OneToMany(cascade = CascadeType.ALL,
+            mappedBy = "game")
+    private Set<Character> characters = new HashSet<>();
+
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "game")
+    private Set<Event> events = new HashSet<>();
 
     public int getId() {
         return id;
@@ -42,4 +52,21 @@ public class Game {
     public void setDateCreated(Date dateCreated) {
         this.dateCreated = dateCreated;
     }
+
+    public Set<Character> getCharacters() {
+        return characters;
+    }
+
+    public void setCharacters(Set<Character> characters) {
+        this.characters = characters;
+    }
+
+    public Set<Event> getEvents() {
+        return events;
+    }
+
+    public void setEvents(Set<Event> events) {
+        this.events = events;
+    }
+
 }

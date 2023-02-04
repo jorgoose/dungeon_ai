@@ -21,6 +21,12 @@ public class SkillController {
         return ResponseEntity.ok(savedSkill);
     }
 
+    @PostMapping("/all")
+    public ResponseEntity<Skill> create(@RequestBody ArrayList<Skill> skills) {
+        skillRepository.saveAll(skills);
+        return ResponseEntity.ok(null);
+    }
+
     @GetMapping
     public ResponseEntity<ArrayList<Skill>> getAll() {
         ArrayList<Skill> allSkills = new ArrayList<>();

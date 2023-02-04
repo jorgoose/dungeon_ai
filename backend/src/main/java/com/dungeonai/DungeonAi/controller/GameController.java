@@ -25,11 +25,6 @@ public class GameController {
     @PostMapping
     public ResponseEntity<Game> create(@RequestBody Game game) throws IOException {
         Game savedGame = gameRepository.save(game);
-        try {
-            characterService.createCharacter();
-        } catch (IOException e) {
-            System.out.println("no go");
-        }
         return ResponseEntity.ok(savedGame);
     }
 
