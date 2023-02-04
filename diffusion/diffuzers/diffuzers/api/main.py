@@ -13,7 +13,7 @@ from diffuzers.x2image import X2Image
 
 
 app = FastAPI(
-    title="diffuzers api",
+    title="Stable Diffusion API via FastAPI",
     license_info={
         "name": "Apache 2.0",
         "url": "https://www.apache.org/licenses/LICENSE-2.0.html",
