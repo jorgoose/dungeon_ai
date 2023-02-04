@@ -9,7 +9,7 @@ import { useEffect } from "react";
 
 // Rolls a dice with a number from 1 to 20, displays the number rolled, and sends the number rolled to the server
 
-export default function Die() {
+export default function Die({ id }) {
   // State variable to hold the number rolled
   const [roll, setRoll] = useState(0);
 
@@ -24,16 +24,16 @@ export default function Die() {
     // Update the value of the element with id "rollval" to the value of the roll
     document.getElementById("rollval").innerHTML = "Roll: " + roll;
 
-    // Send the roll to the server
-    // fetch("/api/roll", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({
-    //     roll: roll,
-    //   }),
-    // });
+    // Make post request to server at "`localhost:8080/events/${id}/${roll}`"
+    fetch(`http://localhost:8080/events/${id}/${roll}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).finally(() => {
+      // Print a message to the console about dice roll
+      console.log("Dice rolled");
+    });
   };
 
   return (
