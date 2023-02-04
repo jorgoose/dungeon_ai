@@ -1,5 +1,6 @@
 package com.dungeonai.DungeonAi.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
 
@@ -65,6 +66,7 @@ public class Character {
         this.appearance = appearance;
     }
 
+    @JsonProperty("current_health")
     public int getCurrentHealth() {
         return currentHealth;
     }
@@ -73,6 +75,7 @@ public class Character {
         this.currentHealth = currentHealth;
     }
 
+    @JsonProperty("max_health")
     public int getMaxHealth() {
         return maxHealth;
     }
@@ -89,6 +92,7 @@ public class Character {
         this.background = background;
     }
 
+    @JsonProperty("skill_points")
     public int getSkillPoints() {
         return skillPoints;
     }

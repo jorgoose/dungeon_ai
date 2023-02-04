@@ -1,5 +1,6 @@
 package com.dungeonai.DungeonAi.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
 @Entity
@@ -33,6 +34,7 @@ public class Skill {
         this.name = name;
     }
 
+    @JsonProperty("level")
     public int getLevel() {
         return level;
     }
