@@ -27,17 +27,20 @@ public class EventController {
     EventService eventService;
 
     @PostMapping("/{game_id}/{dice_roll}")
-    public ResponseEntity<Event> create(@PathVariable("game_id") int gameId,
-                                        @PathVariable("dice_roll") int diceRoll) {
+    public ResponseEntity<Event> create(@PathVariable("game_id") String gameId,
+                                        @PathVariable("dice_roll") String diceRoll,
+                                        @RequestBody Event event1) {
+        int gameI = Integer.parseInt(gameId);
+        int diceR = Integer.parseInt(diceRoll);
         Event event = new Event();
-        Optional<Game> game = gameRepository.findById(gameId);
+        Optional<Game> game = gameRepository.findById(gameI);
         if (game.isEmpty()) {
             return ResponseEntity.unprocessableEntity().build();
         }
         event.setGame(game.get());
 
         try{
-            event.setDescription(eventService.setUpEventDesc(diceRoll));
+            event.setDescription(eventService.setUpEventDesc(diceR));
         }
         catch (InterruptedException e) {
             System.out.println("no go");
