@@ -51,12 +51,13 @@ public class CharacterController {
             }
         }
 
-        Character savedCharacter = characterRepository.save(character);
         try {
-            characterService.createCharacter();
+            String base = characterService.createCharacter();
+            character.setImage(base);
         } catch (IOException e) {
             System.out.println("no go");
         }
+        Character savedCharacter = characterRepository.save(character);
         return ResponseEntity.ok(savedCharacter);
     }
 
