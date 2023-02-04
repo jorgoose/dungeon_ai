@@ -16,16 +16,30 @@ export default function Games() {
   const gamesData = [
     {
       id: 1,
-      name: "Game 1",
+      name: "Code Warriors",
       description: "This is game 1",
-      players: 2,
+      players: 3,
       status: "active",
     },
     {
       id: 2,
-      name: "Game 2",
+      name: "Circuitry Chronicles",
       description: "This is game 2",
-      players: 2,
+      players: 3,
+      status: "active",
+    },
+    {
+      id: 3,
+      name: "Assembly Adventurers",
+      description: "This is game 2",
+      players: 3,
+      status: "active",
+    },
+    {
+      id: 4,
+      name: "Scripting Saga",
+      description: "This is game 1",
+      players: 3,
       status: "active",
     },
   ];

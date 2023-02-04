@@ -16,7 +16,7 @@ export default function PlayerList({ players }) {
             {/* Player Image */}
             <img
               className="m-auto h-24"
-              src={`data:image;base64,${player.image}`}
+              src={player.image}
               alt={player.name}
               // On error, display a default image
               onError={(e) => {

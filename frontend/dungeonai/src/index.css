@@ -46,7 +46,7 @@
 /*  */
 .gamebox {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   background-color: white;
   border-radius: 8px;
 }
