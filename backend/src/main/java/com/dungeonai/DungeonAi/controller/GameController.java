@@ -16,7 +16,7 @@ public class GameController {
     @Autowired
     GameRepository gameRepository;
 
-    @PostMapping("/create")
+    @PostMapping
     public ResponseEntity<Game> create(@RequestBody Game game) {
         Game savedGame = gameRepository.save(game);
         return ResponseEntity.ok(savedGame);
