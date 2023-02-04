@@ -28,8 +28,8 @@ public class EventController {
 
     @PostMapping("/{game_id}/{dice_roll}")
     public ResponseEntity<Event> create(@PathVariable("game_id") int gameId,
-                                        @PathVariable("dice_roll") int diceRoll,
-                                        @RequestBody Event event) {
+                                        @PathVariable("dice_roll") int diceRoll) {
+        Event event = new Event();
         Optional<Game> game = gameRepository.findById(gameId);
         if (game.isEmpty()) {
             return ResponseEntity.unprocessableEntity().build();

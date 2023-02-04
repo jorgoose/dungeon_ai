@@ -14,7 +14,7 @@ public class EventService {
 
     public String setUpEventDesc(int diceRoll) throws InterruptedException {
         initializeHashMap();
-        String token = "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";
+        String token = "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";
         OpenAiService service = new OpenAiService(token);
 
         System.out.println("\nCreating completion...");
