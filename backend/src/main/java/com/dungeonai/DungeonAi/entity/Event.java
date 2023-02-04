@@ -12,7 +12,7 @@ public class Event {
     @Column(name = "id")
     private int id;
 
-    @Column(name = "description")
+    @Column(name = "description", length = 2000)
     private String description;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
