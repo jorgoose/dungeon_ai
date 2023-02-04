@@ -21,22 +21,14 @@ public class EventService {
         String prompt = getPrompt(diceRoll);
         System.out.println(prompt);
         String text = "";
-        while(text == "") {
-            try {
-                CompletionRequest completionRequest = CompletionRequest.builder()
-                        .model("text-davinci-003")
-                        .prompt(prompt)
-                        .echo(true)
-                        .user("testing")
-                        .maxTokens(250)
-                        .build();
-                text = service.createCompletion(completionRequest).getChoices().get(0).getText();
-            }
-            catch (Exception e) {
-                text = "";
-            }
-        }
-
+        CompletionRequest completionRequest = CompletionRequest.builder()
+                .model("text-davinci-003")
+                .prompt(prompt)
+                .echo(true)
+                .user("testing")
+                .maxTokens(250)
+                .build();
+        text = service.createCompletion(completionRequest).getChoices().get(0).getText();
         text = text.replace(prompt + " /n/n", "");
         return text;
     }
