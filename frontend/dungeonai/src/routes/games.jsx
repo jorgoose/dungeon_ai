@@ -2,6 +2,7 @@
 // This component is the main page of the app. It displays a list of games
 
 import React, { useState } from "react";
+import Navbar from "../components/Navbar";
 
 export default function Games() {
   const [games, setGames] = useState([]);
@@ -9,11 +10,10 @@ export default function Games() {
   // useEffect()
 
   return (
-    <div className="Games">
-      <h1>Games</h1>
-      <ul>
-        <li>...</li>
-      </ul>
+    <div>
+      <Navbar />
+        <div className="h-screen bg-slate-400">
+        </div>
     </div>
   );
 }
