@@ -3,11 +3,16 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import Root from "./routes/root";
+import Games from "./routes/games";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
+  },
+  {
+    path: "/games",
+    element: <Games />,
   },
 ]);
 
