@@ -14,7 +14,7 @@ public class EventService {
 
     public String setUpEventDesc(int diceRoll) throws InterruptedException {
         initializeHashMap();
-        String token = "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";
+        String token = "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";
         OpenAiService service = new OpenAiService(token);
 
         System.out.println("\nCreating completion...");
@@ -29,7 +29,7 @@ public class EventService {
                 .maxTokens(250)
                 .build();
         text = service.createCompletion(completionRequest).getChoices().get(0).getText();
-        text = text.replace(prompt + " /n/n", "");
+        text = text.replace(prompt + "\n\n", "");
         return text;
     }
 

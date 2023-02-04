@@ -2,6 +2,7 @@ package com.dungeonai.DungeonAi.controller;
 
 import com.dungeonai.DungeonAi.entity.Character;
 import com.dungeonai.DungeonAi.entity.Game;
+import com.dungeonai.DungeonAi.entity.IntroCharacter;
 import com.dungeonai.DungeonAi.entity.Skill;
 import com.dungeonai.DungeonAi.repository.CharacterRepository;
 import com.dungeonai.DungeonAi.repository.GameRepository;
@@ -11,8 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.swing.text.html.Option;
-import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Optional;
@@ -34,19 +33,18 @@ public class CharacterController {
     @Autowired
     CharacterService characterService;
 
-    @PostMapping("/{game_id}")
+    @PostMapping("/regular/{game_id}")
     public ResponseEntity<Character> create(@PathVariable("game_id") int gameId, @RequestBody Character character) {
         Optional<Game> game = gameRepository.findById(gameId);
         if (game.isEmpty()) {
             return ResponseEntity.unprocessableEntity().build();
         }
-        character.setBackground("Lorem Epsum");
         character.setMaxHealth(100);
         character.setCurrentHealth(100);
-        character.setImage("Basse64String");
+        character.setImage("Base64String");
         character.setGame(game.get());
-        for(Skill skill : skillRepository.findAll()) {
-            if(skill.isDefault()) {
+        for (Skill skill : skillRepository.findAll()) {
+            if (skill.isDefault()) {
                 character.addSkill(skill);
             }
         }
@@ -59,6 +57,41 @@ public class CharacterController {
         }
         Character savedCharacter = characterRepository.save(character);
         return ResponseEntity.ok(savedCharacter);
+    }
+
+    @PostMapping("/{game_id}")
+    public ResponseEntity<ArrayList<Character>> createBulkCharacter(@PathVariable("game_id") int gameId, @RequestBody IntroCharacter introCharacter) {
+        Optional<Game> game = gameRepository.findById(gameId);
+        if (game.isEmpty()) {
+            return ResponseEntity.unprocessableEntity().build();
+        }
+        Character character1 = new Character(introCharacter.getName1(), introCharacter.getAppearance1());
+        Character character2 = new Character(introCharacter.getName2(), introCharacter.getAppearance2());
+        Character character3 = new Character(introCharacter.getName3(), introCharacter.getAppearance3());
+        ArrayList<Character> characters = new ArrayList<>();
+        characters.add(character1);
+        characters.add(character2);
+        characters.add(character3);
+        for (Character character : characters) {
+            character.setMaxHealth(100);
+            character.setCurrentHealth(100);
+            character.setImage("Basse64String");
+            character.setGame(game.get());
+            for (Skill skill : skillRepository.findAll()) {
+                if (skill.isDefault()) {
+                    character.addSkill(skill);
+                }
+            }
+
+            try {
+                String base = characterService.createCharacter();
+                character.setImage(base);
+            } catch (IOException e) {
+                System.out.println("no go");
+            }
+        }
+        ArrayList<Character> savedCharacters = (ArrayList<Character>) characterRepository.saveAll(characters);
+        return ResponseEntity.ok(savedCharacters);
     }
 
     @PutMapping("/{character_id}/skills")
