@@ -42,6 +42,7 @@ The project is split into three main directories:
 # The Frontend
 
 ![Image of "Game" View Page](img/game_view.JPG)
+| <b>Individual "Game" view rendered with React</b>|
 
 # The Backend
 
