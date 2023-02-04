@@ -21,3 +21,30 @@
   cursor: pointer;
   border-radius: 8px;
 }
+
+/* A card container for an individual game. The card should extend to the edge of the page, have rounded edges and have a white background */
+/*  */
+.gamebox {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: white;
+  border-radius: 8px;
+}
+
+.gamewrapper {
+  display: grid;
+  background-color: bg-slate-400;
+}
+
+/* Input box for creating a new game. Background color should be bg-slate-400 */
+.gameinput {
+  background-color: rgb(226 232 240);
+  border-radius: 5px;
+  width: 50%;
+}
+
+.gameadd {
+  display: grid;
+  background-color: white;
+  border-radius: 8px;
+}
