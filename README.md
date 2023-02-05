@@ -44,7 +44,21 @@ The project is split into three main directories:
 ![Image of "Game" View Page](img/game_view.JPG)
 <b>Individual "Game" view rendered with React</b>
 
+<br />
+<br />
+
 # The Backend
+
+![Springboot Logo](https://miro.medium.com/max/700/1*-uckV8DOh3l0bCvqZ73zYg.png)
+
+All logic and data for the game is handled throught the backend via a SpringBoot application.
+
+- Handles storage via Hibernate & MySQL to store game information, history of game events, player data, etc.
+- Henerates new events for a game via some internal game logic combined with a prepared prompt which is sent to the OpenAI API
+- Generates a prepared prompt to send to the StableDiffusion FastAPI application in order to generate images for players and events that occur during the game
+- Feeds data to frontend via RESTful API requests
+  <br />
+  <br />
 
 # StableDiffusion / FastAPI
 
