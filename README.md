@@ -51,10 +51,13 @@ The frontend of dungeon_ai consists of several different views. React Router was
 
 "Games" view
    - View all of the current games that are saved or have been created previously, with an option to create a new game
+<br />
 "Game" view
    - View information about a selected game based on its id, including past events, character information on the sidebar, and ability to roll the die to generate a new encounter
+<br />
 "Create" view
    - Create a new game, along with a set of new characters
+ <br />
 "Character" view
    - View more details about the current status of a specific character in a game (stats, health, description, etc.)
 
