@@ -1,5 +1,7 @@
 # **dungeon_ai** - Iowa State Computer Science Hackathon 2023
 
+![dungeon_ai Logo](img/dungeon_ai_logo.JPG)
+
 Team Members: Logan Jorgensen, Sam McGrath, David Szczepanik, Eli Brady
 <br />
 <br />
