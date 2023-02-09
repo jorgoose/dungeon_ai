@@ -47,6 +47,17 @@ The project is split into three main directories:
 ![Image of "Game" View Page](img/game_view.JPG)
 <b>Individual "Game" view rendered with React</b>
 
+The frontend of dungeon_ai consists of several different views. React Router was used to assign the different views to routes:
+
+"Games" view
+   - View all of the current games that are saved or have been created previously, with an option to create a new game
+"Game" view
+   - View information about a selected game based on its id, including past events, character information on the sidebar, and ability to roll the die to generate a new encounter
+"Create" view
+   - Create a new game, along with a set of new characters
+"Character" view
+   - View more details about the current status of a specific character in a game (stats, health, description, etc.)
+
 <br />
 <br />
 
