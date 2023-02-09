@@ -1,4 +1,5 @@
-# **dungeon_ai** - Iowa State Computer Science Hackathon 2023
+# **dungeon_ai** 
+## Iowa State Computer Science Hackathon 2023
 
 ![dungeon_ai Logo](img/dungeon_ai_logo.JPG)
 

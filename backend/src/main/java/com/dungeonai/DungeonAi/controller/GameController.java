@@ -37,7 +37,6 @@ public class GameController {
 
     @GetMapping("/{game_id}/characters")
     public ResponseEntity<Set<Character>> getAllCharacters(@PathVariable("game_id") int gameId) {
-
         Game game = gameRepository.findById(gameId).get();
         return ResponseEntity.ok(game.getCharacters());
     }
